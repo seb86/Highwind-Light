@@ -47,12 +47,14 @@
 		$header_image = header_image();
 	}
 	else{
-		$post_thumbnail_id 	= get_post_thumbnail_id( );
+		$post_id 			= get_the_ID(); // Get the Post ID
+		$post_thumbnail_id 	= get_post_thumbnail_id( ); // Get the Attachment ID
 		$post_image 		= wp_get_attachment_image_src( $post_thumbnail_id, 'full' );
 		$header_image 		= apply_filters( 'highwind_header_featured_image_size', $post_image[0] );
+		$header_color 		= get_post_meta( $post_id, 'highwind-header-color', true );
 	}
 	?>
-	<header class="header content-wrapper" role="banner" style="background-image:url(<?php echo $header_image; ?>);">
+	<header class="header content-wrapper" role="banner" style="background-color:<?php echo $header_color; ?>; background-image:url(<?php echo $header_image; ?>);">
 
 		<?php highwind_header(); ?>
 

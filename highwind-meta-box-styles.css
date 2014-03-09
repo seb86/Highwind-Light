@@ -1,0 +1,28 @@
+/**
+ * Highwind Light Custom Meta Box
+ */
+
+#highwind_meta{
+	overflow: hidden;
+	padding-bottom: 1em;
+}
+
+#highwind_meta p{
+	clear: both;
+}
+
+.highwind-row-title{
+	display: block;
+	float: left;
+	width: 200px;
+}
+
+.highwind-row-content{
+	float: left;
+	padding-bottom: 1em;
+}
+
+.highwind-row-content label{
+	display: block;
+	line-height: 1.75em;
+}
