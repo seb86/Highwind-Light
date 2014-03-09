@@ -41,10 +41,11 @@ if ( ! function_exists( 'highwind_site_title' ) ) {
 		<?php
 		}
 		else{
+			$header_title_color = get_post_meta( $post->ID, 'highwind-header-title-color', true );
 		?>
-			<a href="<?php echo esc_url( get_permalink( $post->id) ); ?>" title="<?php esc_attr( the_title() ); ?>" rel="home" class="site-intro">
+			<a href="<?php echo esc_url( get_permalink( $post->ID) ); ?>" title="<?php esc_attr( the_title() ); ?>" rel="home" class="site-intro">
 				<?php do_action( 'highwind_site_title_link' ); ?>
-				<h1 class="site-title"><?php esc_attr( the_title() ); ?></h1>
+				<h1 class="site-title" style="color:<?php echo $header_title_color; ?>;"><?php esc_attr( the_title() ); ?></h1>
 				<h2 class="site-description"><?php esc_attr( the_excerpt() ); ?></h2>
 			</a>
 		<?php
@@ -67,5 +68,95 @@ if ( ! function_exists( 'highwind_light_credit' ) ) {
 	<?php
 	}
 }
+
+/**
+ * Adds a meta box to the post editing screen
+ */
+function highwind_header_color_picker_meta() {
+	add_meta_box( 'highwind_meta', __( 'Highwind Header', 'highwind_light' ), 'highwind_header_color_picker_meta_callback', 'page' );
+	add_meta_box( 'highwind_meta', __( 'Highwind Header', 'highwind_light' ), 'highwind_header_color_picker_meta_callback', 'post' );
+}
+add_action( 'add_meta_boxes', 'highwind_header_color_picker_meta' );
+
+/**
+ * Outputs the content of the meta box
+ */
+function highwind_header_color_picker_meta_callback( $post ) {
+	wp_nonce_field( basename( __FILE__ ), 'highwind_nonce' );
+	$header_color = get_post_meta( $post->ID, 'highwind-header-color', true );
+	$header_title_color = get_post_meta( $post->ID, 'highwind-header-title-color', true );
+	?>
+
+	<p>
+		<div class="highwind-row-content">
+			<label for="highwind-header-bg-color" class="highwind-row-title"><?php _e( 'Background Color', 'highwind_light' )?></label>
+			<input name="highwind-header-color" type="text" value="<?php if ( isset ( $header_color ) ) echo $header_color; ?>" class="highwind-header-bg-color" />
+		</div>
+	</p>
+
+	<p>
+		<div class="highwind-row-content">
+			<label for="highwind-header-title-color" class="highwind-row-title"><?php _e( 'Title Color', 'highwind_light' )?></label>
+			<input name="highwind-header-title-color" type="text" value="<?php if ( isset ( $header_title_color ) ) echo $header_title_color; ?>" class="highwind-header-title-color" />
+		</div>
+	</p>
+
+	<?php
+}
+
+/**
+ * Saves the custom meta input
+ */
+function highwind_header_color_picker_meta_save( $post_id ) {
+ 	// Checks save status
+	$is_autosave = wp_is_post_autosave( $post_id );
+	$is_revision = wp_is_post_revision( $post_id );
+	$is_valid_nonce = ( isset( $_POST[ 'highwind_nonce' ] ) && wp_verify_nonce( $_POST[ 'highwind_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
+ 
+	// Exits script depending on save status
+	if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
+		return;
+	}
+
+	// Checks for input and saves if needed
+	if( isset( $_POST[ 'highwind-header-color' ] ) ) {
+		update_post_meta( $post_id, 'highwind-header-color', $_POST[ 'highwind-header-color' ] );
+	}
+
+	if( isset( $_POST[ 'highwind-header-title-color' ] ) ) {
+		update_post_meta( $post_id, 'highwind-header-title-color', $_POST[ 'highwind-header-title-color' ] );
+	}
+
+}
+add_action( 'save_post', 'highwind_header_color_picker_meta_save' );
+
+/**
+ * Adds the meta box stylesheet when appropriate
+ */
+function highwind_header_color_picker_admin_styles(){
+	global $typenow;
+
+	if( is_admin() ) {
+		if( $typenow == 'page' || $typenow == 'post' ) {
+			wp_enqueue_style( 'highwind_meta_box_styles', get_stylesheet_directory_uri() . '/highwind-meta-box-styles.css' );
+		}
+	}
+}
+add_action( 'admin_print_styles', 'highwind_header_color_picker_admin_styles' );
+
+/**
+ * Loads the color picker javascript
+ */
+function enqueue_highwind_header_color_picker() {
+	global $typenow;
+
+	if( is_admin() ) {
+		if( $typenow == 'page' || $typenow == 'post' ) {
+			wp_enqueue_style( 'wp-color-picker' );
+			wp_enqueue_script( 'highwind-meta-box-color-js', get_stylesheet_directory_uri() . '/highwind-meta-box-color.js', array( 'wp-color-picker' ) );
+		}
+	}
+}
+add_action( 'admin_enqueue_scripts', 'enqueue_highwind_header_color_picker' );
 
 ?>
