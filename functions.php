@@ -41,10 +41,11 @@ if ( ! function_exists( 'highwind_site_title' ) ) {
 		<?php
 		}
 		else{
+			$header_title_color = get_post_meta( $post->ID, 'highwind-header-title-color', true );
 		?>
-			<a href="<?php echo esc_url( get_permalink( $post->id) ); ?>" title="<?php esc_attr( the_title() ); ?>" rel="home" class="site-intro">
+			<a href="<?php echo esc_url( get_permalink( $post->ID) ); ?>" title="<?php esc_attr( the_title() ); ?>" rel="home" class="site-intro">
 				<?php do_action( 'highwind_site_title_link' ); ?>
-				<h1 class="site-title"><?php esc_attr( the_title() ); ?></h1>
+				<h1 class="site-title" style="color:<?php echo $header_title_color; ?>;"><?php esc_attr( the_title() ); ?></h1>
 				<h2 class="site-description"><?php esc_attr( the_excerpt() ); ?></h2>
 			</a>
 		<?php
@@ -72,8 +73,8 @@ if ( ! function_exists( 'highwind_light_credit' ) ) {
  * Adds a meta box to the post editing screen
  */
 function highwind_header_color_picker_meta() {
-	add_meta_box( 'highwind_meta', __( 'Highwind Header Color', 'highwind_light' ), 'highwind_header_color_picker_meta_callback', 'page' );
-	add_meta_box( 'highwind_meta', __( 'Highwind Header Color', 'highwind_light' ), 'highwind_header_color_picker_meta_callback', 'post' );
+	add_meta_box( 'highwind_meta', __( 'Highwind Header', 'highwind_light' ), 'highwind_header_color_picker_meta_callback', 'page' );
+	add_meta_box( 'highwind_meta', __( 'Highwind Header', 'highwind_light' ), 'highwind_header_color_picker_meta_callback', 'post' );
 }
 add_action( 'add_meta_boxes', 'highwind_header_color_picker_meta' );
 
@@ -83,12 +84,20 @@ add_action( 'add_meta_boxes', 'highwind_header_color_picker_meta' );
 function highwind_header_color_picker_meta_callback( $post ) {
 	wp_nonce_field( basename( __FILE__ ), 'highwind_nonce' );
 	$header_color = get_post_meta( $post->ID, 'highwind-header-color', true );
+	$header_title_color = get_post_meta( $post->ID, 'highwind-header-title-color', true );
 	?>
 
 	<p>
 		<div class="highwind-row-content">
-			<label for="highwind-header-color" class="highwind-row-title"><?php _e( 'Pick a Color', 'highwind_light' )?></label>
-			<input name="highwind-header-color" type="text" value="<?php if ( isset ( $header_color ) ) echo $header_color; ?>" class="highwind-header-color" />
+			<label for="highwind-header-bg-color" class="highwind-row-title"><?php _e( 'Background Color', 'highwind_light' )?></label>
+			<input name="highwind-header-color" type="text" value="<?php if ( isset ( $header_color ) ) echo $header_color; ?>" class="highwind-header-bg-color" />
+		</div>
+	</p>
+
+	<p>
+		<div class="highwind-row-content">
+			<label for="highwind-header-title-color" class="highwind-row-title"><?php _e( 'Title Color', 'highwind_light' )?></label>
+			<input name="highwind-header-title-color" type="text" value="<?php if ( isset ( $header_title_color ) ) echo $header_title_color; ?>" class="highwind-header-title-color" />
 		</div>
 	</p>
 
@@ -112,6 +121,10 @@ function highwind_header_color_picker_meta_save( $post_id ) {
 	// Checks for input and saves if needed
 	if( isset( $_POST[ 'highwind-header-color' ] ) ) {
 		update_post_meta( $post_id, 'highwind-header-color', $_POST[ 'highwind-header-color' ] );
+	}
+
+	if( isset( $_POST[ 'highwind-header-title-color' ] ) ) {
+		update_post_meta( $post_id, 'highwind-header-title-color', $_POST[ 'highwind-header-title-color' ] );
 	}
 
 }
