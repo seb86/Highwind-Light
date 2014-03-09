@@ -2,6 +2,12 @@
 // Localisation
 load_theme_textdomain( 'highwind_light', get_template_directory() . '/languages' );
 
+// Add excerpt support to pages.
+add_action('init', 'admin_page_support');
+function admin_page_support() {
+	add_post_type_support( 'page', 'excerpt' );
+}
+
 // Removes default Highwind functions and features.
 function removeParentFunctions() {
 	add_filter( 'highwind_header_gravatar', '__return_false' ); // This removes the Gravatar from the header. Delete this line if you still want to use it.
