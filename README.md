@@ -2,7 +2,7 @@
 
 Highwind Light is a free child theme to the free [Highwind](https://github.com/jameskoster/highwind) WordPress theme designed to showcase content. This child theme has a few modifications with the header and content only.
 
-<img align="right" height="268" width="294" src="https://github.com/seb86/highwind-light/highwind-meta-box.png" alt="Highwind Header Options">
+<img align="right" height="268" width="294" src="https://github.com/seb86/Highwind-Light/blob/master/highwind-meta-box.png" alt="Highwind Header Options">
 
 # License
 
