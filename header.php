@@ -47,8 +47,13 @@
 		$header_image = header_image();
 	}
 	else{
-		$post_id 			= get_the_ID(); // Get the Post ID
-		$post_thumbnail_id 	= get_post_thumbnail_id( ); // Get the Attachment ID
+		if ( is_projects_archive () ) {
+			$post_id = projects_get_page_id('projects');
+		}
+		else{
+			$post_id 			= get_the_ID(); // Get the Post ID
+		}
+		$post_thumbnail_id 	= get_post_thumbnail_id( $post_id ); // Get the Attachment ID from post
 		$post_image 		= wp_get_attachment_image_src( $post_thumbnail_id, 'full' );
 		$header_image 		= apply_filters( 'highwind_header_featured_image_size', $post_image[0] );
 		$header_color 		= get_post_meta( $post_id, 'highwind-header-color', true );

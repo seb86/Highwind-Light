@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Highwind Light\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-09 18:18+0100\n"
-"PO-Revision-Date: 2014-03-09 18:18+0100\n"
+"POT-Creation-Date: 2014-03-09 22:36+0100\n"
+"PO-Revision-Date: 2014-03-09 22:36+0100\n"
 "Last-Translator: Sebastien <sebastien@ocean-themes.com>\n"
 "Language-Team: Sebastien Dumont <emailme@sebastiendumont.com>\n"
 "Language: en_US\n"
@@ -27,22 +27,26 @@ msgstr ""
 msgid "Continue Reading..."
 msgstr ""
 
-#: functions.php:66
+#: functions.php:58
+msgid "Projects"
+msgstr ""
+
+#: functions.php:82
 msgid "Powered by"
 msgstr ""
 
-#: functions.php:66
+#: functions.php:82
 msgid "Highwind Light - Child Theme"
 msgstr ""
 
-#: functions.php:76 functions.php:77
+#: functions.php:92 functions.php:93
 msgid "Highwind Header"
 msgstr ""
 
-#: functions.php:92
+#: functions.php:108
 msgid "Background Color"
 msgstr ""
 
-#: functions.php:99
+#: functions.php:115
 msgid "Title Color"
 msgstr ""
