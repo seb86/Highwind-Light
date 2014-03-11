@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Highwind Light\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-09 22:36+0100\n"
-"PO-Revision-Date: 2014-03-09 22:51+0100\n"
+"POT-Creation-Date: 2014-03-11 17:40+0100\n"
+"PO-Revision-Date: 2014-03-11 17:42+0100\n"
 "Last-Translator: Sebastien <sebastien@ocean-themes.com>\n"
 "Language-Team: Sebastien Dumont <emailme@sebastiendumont.com>\n"
 "Language: en_GB\n"
@@ -19,6 +19,18 @@ msgstr ""
 "X-Generator: Poedit 1.6.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
+#: 404.php:32
+msgid ""
+"It seems the page you're looking for no longer (or indeed never did) exists "
+"at this location. Please try searching..."
+msgstr ""
+"It seems the page you're looking for no longer (or indeed never did) exists "
+"at this location. Please try searching..."
+
+#: 404.php:38
+msgid "Try looking in the monthly archives."
+msgstr "Try looking in the monthly archives."
+
 #: content-page.php:27
 msgid "Pages:"
 msgstr "Pages:"
@@ -27,26 +39,34 @@ msgstr "Pages:"
 msgid "Continue Reading..."
 msgstr "Continue Reading..."
 
-#: functions.php:58
+#: functions.php:76
+msgid "404 not found"
+msgstr "404 not found"
+
+#: functions.php:79
 msgid "Projects"
 msgstr "Projects"
 
-#: functions.php:82
+#: functions.php:111
 msgid "Powered by"
 msgstr "Powered by"
 
-#: functions.php:82
+#: functions.php:111
 msgid "Highwind Light - Child Theme"
 msgstr "Highwind Light - Child Theme"
 
-#: functions.php:92 functions.php:93
+#: functions.php:121 functions.php:122 functions.php:123
 msgid "Highwind Header"
 msgstr "Highwind Header"
 
-#: functions.php:108
+#: functions.php:139
 msgid "Background Color"
 msgstr "Background Colour"
 
-#: functions.php:115
+#: functions.php:146
 msgid "Title Color"
 msgstr "Title Colour"
+
+#: functions.php:153
+msgid "Hide Title"
+msgstr "Hide Title"

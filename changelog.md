@@ -7,6 +7,7 @@
 * CORRECTED - Featured Image is shown in the content only on archive pages.
 * CORRECTED - Header title link error if on a 404 page.
 * CORRECTED - Header colour options if page is not a page or post.
+* UPDATED - POT file.
 
 ## 1.1.1
 * ADDED   - Color picker for the Header. Now you can change the color of the header and title per post or page.
