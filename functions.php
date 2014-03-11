@@ -56,7 +56,10 @@ if ( ! function_exists( 'highwind_site_title' ) ) {
 			$header_title_color = get_post_meta( $post->ID, 'highwind-header-title-color', true );
 			$header_title_hide = get_post_meta( $post->ID, 'highwind-header-hide-title', true );
 			if ( !empty( $header_title_hide ) ){ $hide_title = 'text-indent: -9999px;'; }else{ $hide_title = 'text-indent: 0px;'; }
-			if ( is_projects_archive() ) {
+			if( is_404() ) {
+				$title = __( '404 not found', 'highwind_light' );
+			}
+			else if ( is_projects_archive() ) {
 				$title = __( 'Projects', 'highwind_light' );
 			}
 			else{ $title = get_the_title(); }
