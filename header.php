@@ -45,6 +45,7 @@
 	<?php
 	if( is_home() ) {
 		$header_image = header_image();
+		$header_color = '';
 	}
 	else{
 		if ( is_projects_archive () ) {
