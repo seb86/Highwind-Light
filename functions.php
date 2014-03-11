@@ -53,9 +53,25 @@ if ( ! function_exists( 'highwind_site_title' ) ) {
 		<?php
 		}
 		else{
-			$header_title_color = get_post_meta( $post->ID, 'highwind-header-title-color', true );
-			$header_title_hide = get_post_meta( $post->ID, 'highwind-header-hide-title', true );
+			// Prevents any errors when on viewing a 404 page.
+			if( !is_404() ) {
+				if ( is_projects_archive() ) {
+					$header_title_color = '#ffffff';
+					$header_title_hide = '';
+				}
+				else{
+					$header_title_color = get_post_meta( $post->ID, 'highwind-header-title-color', true );
+					$header_title_hide = get_post_meta( $post->ID, 'highwind-header-hide-title', true );
+				}
+			}
+			else{
+				$header_title_color = '';
+				$header_title_hide = '';
+			}
+
 			if ( !empty( $header_title_hide ) ){ $hide_title = 'text-indent: -9999px;'; }else{ $hide_title = 'text-indent: 0px;'; }
+
+			// Titles
 			if( is_404() ) {
 				$title = __( '404 not found', 'highwind_light' );
 			}
@@ -63,8 +79,16 @@ if ( ! function_exists( 'highwind_site_title' ) ) {
 				$title = __( 'Projects', 'highwind_light' );
 			}
 			else{ $title = get_the_title(); }
+
+			// Page links
+			if( !is_404() ) {
+				$page_link = get_permalink( $post->ID);
+			}
+			else{
+				$page_link = home_url( '/' );
+			}
 		?>
-			<a href="<?php echo esc_url( get_permalink( $post->ID) ); ?>" title="<?php echo esc_attr( $title ); ?>" rel="home" class="site-intro">
+			<a href="<?php echo esc_url( $page_link ); ?>" title="<?php echo esc_attr( $title ); ?>" rel="home" class="site-intro">
 				<?php do_action( 'highwind_site_title_link' ); ?>
 				<h1 class="site-title" style="color:<?php echo $header_title_color; ?>;<?php echo $hide_title; ?>"><?php echo esc_attr( $title ); ?></h1>
 				<h2 class="site-description"><?php esc_attr( the_excerpt() ); ?></h2>
