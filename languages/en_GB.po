@@ -2,10 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Highwind Light\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-11 17:40+0100\n"
-"PO-Revision-Date: 2014-03-11 17:42+0100\n"
-"Last-Translator: Sebastien <sebastien@ocean-themes.com>\n"
-"Language-Team: Sebastien Dumont <emailme@sebastiendumont.com>\n"
+"POT-Creation-Date: 2014-03-31 03:07+0100\n"
+"PO-Revision-Date: 2014-03-31 03:09+0100\n"
+"Last-Translator: Sebastien <sebastien@sebs-studio.com>\n"
+"Language-Team: Sebastien Dumont <mailme@sebastiendumont.com>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,26 +47,110 @@ msgstr "404 not found"
 msgid "Projects"
 msgstr "Projects"
 
-#: functions.php:111
+#: functions.php:82
+msgid "Archive"
+msgstr "Archive"
+
+#: functions.php:85
+msgid "Category"
+msgstr "Category"
+
+#: functions.php:88
+msgid "Tag"
+msgstr "Tag"
+
+#: functions.php:125
 msgid "Powered by"
 msgstr "Powered by"
 
-#: functions.php:111
+#: functions.php:125
 msgid "Highwind Light - Child Theme"
 msgstr "Highwind Light - Child Theme"
 
-#: functions.php:121 functions.php:122 functions.php:123
+#: functions.php:135 functions.php:136 functions.php:137
 msgid "Highwind Header"
 msgstr "Highwind Header"
 
-#: functions.php:139
+#: functions.php:159
 msgid "Background Color"
 msgstr "Background Colour"
 
-#: functions.php:146
+#: functions.php:164
+msgid "Background Position (X)"
+msgstr "Background Position (X)"
+
+#: functions.php:167
+msgid "Left"
+msgstr "Left"
+
+#: functions.php:171 functions.php:184
+msgid "Center"
+msgstr "Center"
+
+#: functions.php:175
+msgid "Right"
+msgstr "Right"
+
+#: functions.php:177
+msgid "Background Position (Y)"
+msgstr "Background Position (Y)"
+
+#: functions.php:180
+msgid "Top"
+msgstr "Top"
+
+#: functions.php:188
+msgid "Bottom"
+msgstr "Bottom"
+
+#: functions.php:193
+msgid "Background Repeat"
+msgstr "Background Repeat"
+
+#: functions.php:196
+msgid "No-Repeat"
+msgstr "No-Repeat"
+
+#: functions.php:200
+msgid "Repeat"
+msgstr "Repeat"
+
+#: functions.php:204
+msgid "Right-X"
+msgstr "Right-X"
+
+#: functions.php:208
+msgid "Right-Y"
+msgstr "Right-Y"
+
+#: functions.php:213
 msgid "Title Color"
 msgstr "Title Colour"
 
-#: functions.php:153
+#: functions.php:218
 msgid "Hide Title"
 msgstr "Hide Title"
+
+#: functions.php:326
+msgid "Set Featured Image"
+msgstr "Set Featured Image"
+
+#: functions.php:402
+msgid "Breadcrumbs"
+msgstr "Breadcrumbs"
+
+#: functions.php:404
+msgid "Choose if you want to show the breadcrumbs under the header."
+msgstr "Choose if you want to show the breadcrumbs under the header."
+
+#: functions.php:411
+msgid "Yes"
+msgstr "Yes"
+
+#: functions.php:415
+msgid "No"
+msgstr "No"
+
+#: functions.php:423
+msgid "Enable Breadcrumbs?"
+msgstr "Enable Breadcrumbs?"

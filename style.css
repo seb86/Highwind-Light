@@ -18,3 +18,22 @@
 */
 
 @import url("../highwind/style.css");
+
+@media only screen and (min-width: 769px) {
+
+	/* Header */
+	.header {
+		margin-bottom: 2.209em !important;
+	}
+
+	/* Projects by WooThemes */
+	body.projects .content, body.fullwidth .content {
+		width: 93.85594477520422% !important;
+	}
+
+	.projects_list_widget li img {
+		float: left;
+		max-width: 100%;
+	}
+
+}

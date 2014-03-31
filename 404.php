@@ -29,13 +29,13 @@ get_header();
 
 		<?php highwind_content_entry_top(); ?>
 
-		<p><?php _e( 'It seems the page you\'re looking for no longer (or indeed never did) exists at this location. Please try searching...', 'highwind' ); ?>
+		<p><?php _e( 'It seems the page you\'re looking for no longer (or indeed never did) exists at this location. Please try searching...', 'highwind_light' ); ?>
 
 		<?php
 
 			// Display a search form and some helpful widgets
 
-			$archive_content = '<p>' . sprintf( __( 'Try looking in the monthly archives.', 'highwind' ) ) . '</p>';
+			$archive_content = '<p>' . sprintf( __( 'Try looking in the monthly archives.', 'highwind_light' ) ) . '</p>';
 
 			get_search_form();
 

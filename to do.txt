@@ -1,0 +1,4 @@
+Match the menu border line and menu hover with the header background colour. - Be best to add another colour option for this to the colours options in theme customizer.
+
+Add Header options to theme customizer. - This will be default to all posts/page headers if not overwritten by that post/page. - May need to be a new controller as the default one is no good.
+

@@ -1,8 +1,8 @@
 <?php
 /**
  * The page template.
- * @package highwind light
- * @since 1.1.1
+ * @package highwind_light
+ * @since 1.1.2
  */
 ?>
 

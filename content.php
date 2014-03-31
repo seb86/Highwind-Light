@@ -1,7 +1,7 @@
 <?php
 /**
  * The template for displaying posts.
- * @package highwind light
+ * @package highwind_light
  * @since 1.0.0
  */
 ?>
@@ -26,7 +26,7 @@
 
 		highwind_content_entry_top();
 
-		the_content( __( 'Continue Reading...', 'highwind' ) );
+		the_content( __( 'Continue Reading...', 'highwind_light' ) );
 
 		wp_link_pages();
 
